@@ -5,8 +5,15 @@ function addAirplaneImageToMenu(flight){
     imgElement.src = flight.image
     imgElement.className = "menu-image"
     airplaneMenuDivElement.appendChild(imgElement)
+
+    // Display flight details in response to mouseover event
     imgElement.addEventListener('mouseover', () => {
         displayFlightDetails(flight)
+    })
+
+    // Remove flight image in response to click event
+    imgElement.addEventListener('click', () => {
+        imgElement.remove()
     })
 }
 
