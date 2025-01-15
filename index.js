@@ -9,6 +9,11 @@ function addAirplaneImageToMenu(flight){
 function displayFlightDetails(flight){
     const flightIdElement = document.getElementById('flight-id')
     flightIdElement.textContent = `Flight # ${flight.id}`
+    const flightAirlineElement = document.getElementById('flight-airline')
+    flightAirlineElement.textContent = `Airline: ${flight.airline}`
+    const flightImageElement = document.getElementById('flight-image')
+    flightImageElement.src = flight.image
+    flightImageElement.alt = flight.airline
 }
 
 fetch('http://localhost:3000/flights')
