@@ -1,4 +1,12 @@
 const airplaneMenuDivElement = document.getElementById('airplane-menu')
+const flightIdElement = document.getElementById('flight-id')
+const flightAirlineElement = document.getElementById('flight-airline')
+const flightImageElement = document.getElementById('flight-image')
+const newFlightFormElement = document.getElementById('new-flight-form')
+const newAirlineInputElement = document.getElementById('new-airline')
+const newImageInputElement = document.getElementById('new-image')
+
+let flightsArrayCopy = []
 
 function addAirplaneImageToMenu(flight){
     const imgElement = document.createElement('img')
@@ -18,11 +26,8 @@ function addAirplaneImageToMenu(flight){
 }
 
 function displayFlightDetails(flight){
-    const flightIdElement = document.getElementById('flight-id')
     flightIdElement.textContent = `Flight # ${flight.id}`
-    const flightAirlineElement = document.getElementById('flight-airline')
     flightAirlineElement.textContent = `Airline: ${flight.airline}`
-    const flightImageElement = document.getElementById('flight-image')
     flightImageElement.src = flight.image
     flightImageElement.alt = flight.airline
 }
@@ -33,4 +38,22 @@ fetch('http://localhost:3000/flights')
     flights.forEach(addAirplaneImageToMenu)
 
     displayFlightDetails(flights[0])
+
+    flightsArrayCopy = flights
+})
+
+newFlightFormElement.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const newId = flightsArrayCopy.length > 0 ? flightsArrayCopy[flightsArrayCopy.length - 1].id + 1 : 1
+
+    const newFlight = {
+        id: newId,
+        airline: newAirlineInputElement.value,
+        image: newImageInputElement.value
+    }
+
+    addAirplaneImageToMenu(newFlight)
+
+    newFlightFormElement.reset()
 })
