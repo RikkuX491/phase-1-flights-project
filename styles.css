@@ -1,3 +1,12 @@
-#intro, #flight-details-display{
+#intro, #flight-details-display, #airplane-menu{
     text-align: center;
+}
+
+.menu-image{
+    width: 250px;
+    margin: 10px;
+}
+
+#flight-image{
+    width: 500px;
 }

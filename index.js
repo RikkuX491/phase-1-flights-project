@@ -3,7 +3,11 @@ const airplaneMenuDivElement = document.getElementById('airplane-menu')
 function addAirplaneImageToMenu(flight){
     const imgElement = document.createElement('img')
     imgElement.src = flight.image
+    imgElement.className = "menu-image"
     airplaneMenuDivElement.appendChild(imgElement)
+    imgElement.addEventListener('mouseover', () => {
+        displayFlightDetails(flight)
+    })
 }
 
 function displayFlightDetails(flight){
