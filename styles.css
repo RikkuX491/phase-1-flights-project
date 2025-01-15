@@ -1,4 +1,4 @@
-#intro, #flight-details-display, #airplane-menu{
+#intro, #flight-details-display, #airplane-menu, #new-flight-form{
     text-align: center;
 }
 
@@ -9,4 +9,9 @@
 
 #flight-image{
     width: 500px;
+}
+
+#new-flight-form input{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
