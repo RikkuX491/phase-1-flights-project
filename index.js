@@ -32,9 +32,10 @@ function displayFlightDetails(flight){
     flightImageElement.alt = flight.airline
 }
 
-fetch('http://localhost:3000/flights')
+fetch('https://raw.githubusercontent.com/RikkuX491/phase-1-flights-project/refs/heads/main/db.json')
 .then(response => response.json())
-.then(flights => {
+.then(data => {
+    const flights = data.flights
     flights.forEach(addAirplaneImageToMenu)
 
     displayFlightDetails(flights[0])
